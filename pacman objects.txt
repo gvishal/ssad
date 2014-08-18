@@ -1,0 +1,78 @@
+print '\n'.join([''.join(['{:3}'.format(item)for item in row])
+...             for row in board])
+
+
+board = [['.' for x in xrange(35)]for x in xrange(25)]
+
+"""PART A
+My Pacman:
+Marks: 50 
+ 
+The first question is to write a python program that simulates a very basic version of Pacman 
+Game.  
+Your program should have the following classes: 
+1. Person 
+2. Pacman 
+3. Ghost 
+Where Pacman and Ghost inherit from Person. 
+You have to implement it using OOP principles [ Inheritance, Polymorphism, Encapsulation 
+and Modularity are must]. The better code you write, more marks you get. 
+ 
+Don’t worry! You don’t have to apply any Artificial Intelligence here, you can control pacman’s 
+moves by pressing ‘w’, ‘a’, ‘s’ and ‘d’ keys for moving up, left, down and right respectively. 
+Ghost’s moves have to be random. 
+ 
+There have to be coins present in the space which are represented by ‘C’, which on getting 
+collected by Pacman increases your score. 
+Pacman is represented by ‘P’ and Ghost by ‘G’. 
+Print the board after every input (‘w’, ‘s’, ‘a’ and ‘d’). 
+ 
+You also need to have walls represented by ‘X’ which can’t be crossed by any person. 
+ 
+You are free to place pacman, ghost, coins and walls wherever you want initially. 
+Preferred board size is 35x15. 
+Least number of coins to be placed initially: 20 
+Least number of walls to be placed initially: 20 
+ 
+What should be the input? 
+1. Moves: 
+a. ‘w’ : up 
+b. ‘s’ : down 
+c. ‘a’ : left 
+d. ‘d’ : right 
+2. Quit ‘q’ 
+1 
+ 
+What should be visible in the output? 
+1. Pacman P 
+2. Ghost G 
+3. Coins C 
+4. Walls X 
+5. Score 
+6. <Rest space represent using a dot> . 
+ 
+Some operations that you should have: 
+ 
+1. checkGhost() 
+Checks if the current Pacman’s position has a ghost on it and ENDS the game if true. 
+2. collectCoin() 
+ 
+      3.   ghostPosition() 
+ 
+      4.   checkWall() 
+ 
+End the game when pacman gets eaten by ghost or user quits by pressing ‘q’. 
+Reload the board keeping the score intact when all the coins are taken.   
+ 
+*Bonus marks would be awarded for additional features(multiple ghosts,.. etc). 
+*Suggested OOP principles should be strictly followed. 
+ 
+Assessment Criteria : 
+ 
+OOP ­ Inheritance  10 Marks 
+OOP ­ Polymorphism  10 Marks 
+OOP ­ Modularity  10 Marks 
+OOP ­ Encapsulation  10 Marks 
+Functionalities of the Game  10 Marks 
+*Bonus*  10 Marks
+"""
