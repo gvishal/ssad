@@ -18,6 +18,13 @@
 """
 import random
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
 
 class Board():
     """Board class"""
@@ -25,12 +32,27 @@ class Board():
         self.board = [['.' for x in xrange(35)]for y in xrange(15)]
         self.rows = len(self.board)
         self.cols = len(self.board[0])
+        self.coins = 0
         self.generate_wall()
         self.generate_coin(coins)
 
     def print_board(self):
-        print '\n'.join([''.join(['{:3}'.format(item) for item in row])
-                                                for row in self.board])
+        #print bcolors.WARNING
+        # print '\n'.join([''.join(['{:3}'.format(item) for item in row])
+        #                                         for row in self.board])
+        for row in self.board:
+            color_row = []
+            for item in row:
+                if item == 'C':
+                    color_row.append(bcolors.HEADER + item)
+                elif item == 'P':
+                    color_row.append(bcolors.OKBLUE + item)
+                elif item == 'G':
+                    color_row.append(bcolors.OKGREEN + item)
+                else:
+                    color_row.append(bcolors.WARNING + item)
+            print ''.join(['{:8}'.format(item) for item in color_row])
+        print bcolors.ENDC
 
     def generate_wall(self):
         for x in xrange(self.cols):
@@ -43,7 +65,6 @@ class Board():
             self.board[y][-1] = 'X'
 
     def generate_coin(self, N):
-        self.coins = 0
         for n in xrange(N):
             x = random.randint(1,self.cols-2)
             y = random.randint(2,self.rows-3)

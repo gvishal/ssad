@@ -5,6 +5,14 @@ from getch import _Getch
 import os
 import random
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+
 class Bunch(object):
     """Mutable named tuple.
 
@@ -23,7 +31,10 @@ class Person(object):
             board.board[position.y][position.x] = 'P'
         elif self.__class__ is Ghost:
             board.board[position.y][position.x] = 'G'
-        pass
+        else:
+            return
+        if board.board[position.y][position.x] == 'C':
+            board.coins -= 1
 
     def move(self, turn):
         pass
@@ -109,21 +120,31 @@ def check_wall():
 def main():
     os.system("clear")
     getch = _Getch()
-    board = Board(coins=10)
+    board = Board(coins=20)
     position = Bunch(x=12, y=12)
     pacman = Pacman(board, position)
     position = Bunch(x=4, y=5)
-    ghost = Ghost(board, position)
+    ghost1 = Ghost(board, position)
+    position = Bunch(x=12, y=5)
+    ghost2 = Ghost(board, position)
+    position = Bunch(x=22, y=5)
+    ghost3 = Ghost(board, position)
+    position = Bunch(x=32, y=5)
+    ghost4 = Ghost(board, position)
     board.print_board()
     print "Score: %d" % pacman.score
     print "Enter input: "
     turn = getch()
     while turn != 'q':
         pacman.update_position(board, turn)
-        ghost.update_position(board)
+        ghost1.update_position(board)
+        ghost2.update_position(board)
+        ghost3.update_position(board)
+        ghost4.update_position(board)
         os.system("clear")
         board.print_board()
-        if not pacman.check_alive(ghost):
+        if (not pacman.check_alive(ghost1) or not pacman.check_alive(ghost2) 
+            or not pacman.check_alive(ghost3) or not pacman.check_alive(ghost4)):
             print "\n\t\tGame over!!!","Your score %d\n\n" % pacman.score
             turn = 'q'
         elif not board.coins:
