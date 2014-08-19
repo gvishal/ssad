@@ -3,6 +3,7 @@
 from pacman_board import Board
 from getch import _Getch
 import os
+import random
 
 class Bunch(object):
     """Mutable named tuple.
@@ -27,20 +28,20 @@ class Person(object):
     def move(self, turn):
         pass
 
-    # def update_position(self, board, position):
-    #     if self.__class__ is Pacman:
-    #         board.board[position.y][position.x] = 'P'
-    #     elif self.__class__ is Ghost:
-    #         board.board[position.y][position.x] = 'G'
+    def update_position(self, board, position):
+        if self.__class__ is Pacman:
+            board.board[position.y][position.x] = 'P'
+        elif self.__class__ is Ghost:
+            board.board[position.y][position.x] = 'G'
 
 class Pacman(Person):
     """Pacman class"""
     def __init__(self, board, position):
         Person.__init__(self, board, position)
         self.score = 0
+        self.alive = True
 
     def update_position(self, board, turn):
-        new_position = Bunch()
         if turn == 'w':
             new_position = Bunch(y=self.position.y - 1, x=self.position.x)
         elif turn == 'a':
@@ -49,29 +50,58 @@ class Pacman(Person):
             new_position = Bunch(y=self.position.y + 1, x=self.position.x)
         elif turn == 'd':
             new_position = Bunch(x=self.position.x + 1, y=self.position.y)
+        else:
+            return
         if board.board[new_position.y][new_position.x] in ['.', 'C']:
             if board.board[new_position.y][new_position.x] == 'C':
                 self.collect_coin(board)
             board.board[self.position.y][self.position.x] = '.'
             board.board[new_position.y][new_position.x] = 'P'
             self.position = new_position
-        # elif board.board[new_position.y][new_position.x] == 'C':
-        #     board.board[self.position.y][self.position.x] = '.'
-        #     board.board[new_position.y][new_position.x] = 'P'
-        #     self.position = new_position
 
     def collect_coin(self, board):
         self.score += 1
         board.coins -= 1
 
+    def check_alive(self, ghost):
+        if self.position.y == ghost.position.y and self.position.x == ghost.position.x:
+            self.alive = False
+            return False
+        else:
+            return True
+
+    def pacman_position(self):
+        print self.position.x,self.position.y
+
 class Ghost(Person):
-    pass
+    """Ghost class"""
+    def __init__(self, board, position):
+        Person.__init__(self, board, position)
+        self.position_object = '.'
 
-def check_ghost():
-    pass
+    def update_position(self, board):
+        x = random.randint(-1,1)
+        y = random.randint(-1,1)
+        new_position = Bunch(x=self.position.x+x, y=self.position.y+y)
+        if board.board[new_position.y][new_position.x] in ['.','C','P']:
+            new_position_object = board.board[new_position.y][new_position.x]
+            board.board[self.position.y][self.position.x] = self.position_object
+            board.board[new_position.y][new_position.x] = 'G'
+            self.position_object = new_position_object
+            self.position = new_position
+        # elif board.board[new_position.y][new_position.x] == 'P':
+        #     board.board[new_position.y][new_position.x] = 'G'
+        #     self.position = new_position
+        #     print self.position.x,self.position.y
 
-def ghost_position():
-    pass
+    def check_ghost(self, position):
+        if self.position == position:
+            return True
+        else:
+            return False
+
+    def ghost_position(self):
+        return self.position.x,self.position.y
 
 def check_wall():
     pass
@@ -79,21 +109,24 @@ def check_wall():
 def main():
     os.system("clear")
     getch = _Getch()
-    board = Board(coins=2)
+    board = Board(coins=10)
     position = Bunch(x=12, y=12)
     pacman = Pacman(board, position)
-    position = Bunch(x=4, y=4)
+    position = Bunch(x=4, y=5)
     ghost = Ghost(board, position)
     board.print_board()
     print "Score: %d" % pacman.score
     print "Enter input: "
     turn = getch()
-    print turn
     while turn != 'q':
         pacman.update_position(board, turn)
+        ghost.update_position(board)
         os.system("clear")
         board.print_board()
-        if not board.coins:
+        if not pacman.check_alive(ghost):
+            print "\n\t\tGame over!!!","Your score %d\n\n" % pacman.score
+            turn = 'q'
+        elif not board.coins:
             print "\n\t\tYou won!!!","Your score %d\n\n" % pacman.score
             turn = 'q'
         else:
