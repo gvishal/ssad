@@ -5,7 +5,7 @@ from getch import _Getch
 import os
 import random
 
-class bcolors:
+class bcolors(object):
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -91,8 +91,8 @@ class Ghost(Person):
         self.position_object = '.'
 
     def update_position(self, board):
-        x = random.randint(-1,1)
-        y = random.randint(-1,1)
+        x = random.randint(-1, 1)
+        y = random.randint(-1, 1)
         new_position = Bunch(x=self.position.x+x, y=self.position.y+y)
         if board.board[new_position.y][new_position.x] in ['.','C','P']:
             new_position_object = board.board[new_position.y][new_position.x]
@@ -112,7 +112,7 @@ class Ghost(Person):
             return False
 
     def ghost_position(self):
-        return self.position.x,self.position.y
+        return self.position.x, self.position.y
 
 def check_wall():
     pass
@@ -143,8 +143,8 @@ def main():
         ghost4.update_position(board)
         os.system("clear")
         board.print_board()
-        if (not pacman.check_alive(ghost1) or not pacman.check_alive(ghost2) 
-            or not pacman.check_alive(ghost3) or not pacman.check_alive(ghost4)):
+        if (not pacman.check_alive(ghost1) or not pacman.check_alive(ghost2) or 
+            not pacman.check_alive(ghost3) or not pacman.check_alive(ghost4)):
             print "\n\t\tGame over!!!","Your score %d\n\n" % pacman.score
             turn = 'q'
         elif not board.coins:

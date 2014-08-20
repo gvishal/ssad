@@ -26,7 +26,7 @@ class bcolors:
     FAIL = '\033[91m'
     ENDC = '\033[0m'
 
-class Board():
+class Board(object):
     """Board class"""
     def __init__(self, coins=25):
         self.board = [['.' for x in xrange(35)]for y in xrange(15)]
@@ -66,8 +66,8 @@ class Board():
 
     def generate_coin(self, N):
         for n in xrange(N):
-            x = random.randint(1,self.cols-2)
-            y = random.randint(2,self.rows-3)
+            x = random.randint(1, self.cols-2)
+            y = random.randint(2, self.rows-3)
             if self.board[y][x] != 'X':
                 self.board[y][x] = 'C'
                 self.coins += 1
