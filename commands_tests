@@ -1,0 +1,21 @@
+commands.py
+cwd - SSAD
+
+tests passed:
+ls
+ls   spaces spaces
+ls \n
+ls asdasdadasd
+ls          sadasdasd
+ls test
+ls /test -----ls: specified directory doesnt exist
+ls test/
+ls /home
+
+ls -l
+ls -l test
+ls -l /home/vg/work/IIITH/SSAD/test
+
+
+tests failed:
+
