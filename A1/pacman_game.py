@@ -4,6 +4,7 @@ from pacman_board import Board
 from getch import _Getch
 import os
 import random
+import sys
 
 class bcolors(object):
     HEADER = '\033[95m'
@@ -114,23 +115,23 @@ class Ghost(Person):
     def ghost_position(self):
         return self.position.x, self.position.y
 
-def check_wall():
-    pass
-
-def main():
+def main(score=0, next_level=0):
     os.system("clear")
     getch = _Getch()
-    board = Board(coins=20)
+    board = Board(coins=2)
     position = Bunch(x=12, y=12)
     pacman = Pacman(board, position)
+    if next_level > 0 and score > 0:
+        print "Next level\n"
+        pacman.score = score
+    score = 0
+    next_level = 0
     position = Bunch(x=4, y=5)
     ghost1 = Ghost(board, position)
     position = Bunch(x=12, y=5)
     ghost2 = Ghost(board, position)
     position = Bunch(x=22, y=5)
     ghost3 = Ghost(board, position)
-    position = Bunch(x=32, y=5)
-    ghost4 = Ghost(board, position)
     board.print_board()
     print "Score: %d" % pacman.score
     print "Enter input: "
@@ -140,15 +141,16 @@ def main():
         ghost1.update_position(board)
         ghost2.update_position(board)
         ghost3.update_position(board)
-        ghost4.update_position(board)
         os.system("clear")
         board.print_board()
         if (not pacman.check_alive(ghost1) or not pacman.check_alive(ghost2) or 
-            not pacman.check_alive(ghost3) or not pacman.check_alive(ghost4)):
+            not pacman.check_alive(ghost3)):
             print "\n\t\tGame over!!!","Your score %d\n\n" % pacman.score
             turn = 'q'
+            sys.exit(0)
         elif not board.coins:
             print "\n\t\tYou won!!!","Your score %d\n\n" % pacman.score
+            main(pacman.score, next_level=1)
             turn = 'q'
         else:
             print "Score: %d" % pacman.score

@@ -77,3 +77,7 @@ class Board(object):
 
     def position_ghost(self, position):
         self.board[position.y][position.x] = 'G'
+
+    def check_wall(self, position):
+        if self.board[position.y][position.x] == 'W':
+            return True
