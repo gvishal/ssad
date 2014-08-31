@@ -175,8 +175,47 @@ def main():
                         continue
                     details = file_details(command, file)
                     print details
+
+            elif command[1] in ['-la','-al']:
+                """ls -l (path)"""
+                """owner group others hardlinks owner group size month day time filename"""
+                try:
+                    path = command[2]
+                    try:
+                        if os.path.exists(path):
+                            dir_list = os.listdir(path)
+                            for i in xrange(len(dir_list)):
+                                dir_list[i] = os.path.join(path, dir_list[i])
+                    except:
+                        print "%s: specified directory doesnt exist" % command[0]
+                        sys.exit(0)
+                except IndexError:
+                    dir_list = os.listdir(os.getcwd())
+                    for i in xrange(len(dir_list)):
+                        dir_list[i] = os.path.join(os.getcwd(), dir_list[i])
+                for file in dir_list:
+                    details = file_details(command, file)
+                    print details
+
+            elif command[1] == '-a':
+                try:
+                    path = command[2]
+                    if os.path.exists(path):
+                        dir_list = os.listdir(path)
+                    else:
+                        print "%s: specified directory doesnt exist" % command[0]
+                        sys.exit(0)
+                except IndexError:
+                    dir_list = os.listdir(os.getcwd())
+                col_width = max(len(file) for file in dir_list)
+                for file in dir_list:
+                    print file,
+                    #print file.ljust(col_width),
+                    # print string.ljust(file,col_width),
             else:
                 raise
+        except IndexError,SystemExit:
+            pass
         except:
             """ls (path)"""
             try:
