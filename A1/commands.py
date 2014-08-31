@@ -207,14 +207,14 @@ def main():
                         sys.exit(0)
                 except IndexError:
                     dir_list = os.listdir(os.getcwd())
-                col_width = max(len(file) for file in dir_list)
+                #col_width = max(len(file) for file in dir_list)
                 for file in dir_list:
                     print file,
                     #print file.ljust(col_width),
                     # print string.ljust(file,col_width),
             else:
                 raise
-        except IndexError,SystemExit:
+        except SystemExit:
             pass
         except:
             """ls (path)"""
@@ -227,7 +227,7 @@ def main():
                     sys.exit(0)
             except IndexError:
                 dir_list = os.listdir(os.getcwd())
-            col_width = max(len(file) for file in dir_list)
+            #col_width = max(len(file) for file in dir_list)
             for file in dir_list:
                 if file[0] == '.':
                     continue
