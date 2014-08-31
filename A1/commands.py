@@ -171,6 +171,8 @@ def main():
                     for i in xrange(len(dir_list)):
                         dir_list[i] = os.path.join(os.getcwd(), dir_list[i])
                 for file in dir_list:
+                    if os.path.basename(file)[0] == '.':
+                        continue
                     details = file_details(command, file)
                     print details
             else:
@@ -186,9 +188,12 @@ def main():
                     sys.exit(0)
             except IndexError:
                 dir_list = os.listdir(os.getcwd())
-            #col_width = max(len(file) for file in dir_list) + 2 
+            col_width = max(len(file) for file in dir_list)
             for file in dir_list:
-                print file
+                if file[0] == '.':
+                    continue
+                print file,
+                #print file.ljust(col_width),
                 # print string.ljust(file,col_width),
 
     elif command[0] == 'cp':

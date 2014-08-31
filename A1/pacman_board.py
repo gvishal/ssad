@@ -32,9 +32,20 @@ class Board(object):
         self.board = [['.' for x in xrange(35)]for y in xrange(15)]
         self.rows = len(self.board)
         self.cols = len(self.board[0])
-        self.coins = 0
+        self._coins = 0
         self.generate_wall()
         self.generate_coin(coins)
+
+    def coins():
+        doc = "The coins property."
+        def fget(self):
+            return self._coins
+        def fset(self, value):
+            self._coins = value
+        def fdel(self):
+            del self._coins
+        return locals()
+    coins = property(**coins())
 
     def print_board(self):
         #print bcolors.WARNING
@@ -70,7 +81,7 @@ class Board(object):
             y = random.randint(2, self.rows-3)
             if self.board[y][x] != 'X':
                 self.board[y][x] = 'C'
-                self.coins += 1
+            self.coins += 1
 
     def position_pacman(self, position):
         self.board[position.y][position.x] = 'P'

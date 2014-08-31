@@ -28,14 +28,14 @@ class Person(object):
     """docstring"""
     def __init__(self, board, position):
         self.position = position
+        if board.board[position.y][position.x] == 'C':
+            board.coins -= 1
         if self.__class__ is Pacman:
             board.board[position.y][position.x] = 'P'
         elif self.__class__ is Ghost:
             board.board[position.y][position.x] = 'G'
         else:
             return
-        if board.board[position.y][position.x] == 'C':
-            board.coins -= 1
 
     def move(self, turn):
         pass
@@ -118,7 +118,7 @@ class Ghost(Person):
 def main(score=0, next_level=0):
     os.system("clear")
     getch = _Getch()
-    board = Board(coins=2)
+    board = Board(coins=15)
     position = Bunch(x=12, y=12)
     pacman = Pacman(board, position)
     if next_level > 0 and score > 0:
