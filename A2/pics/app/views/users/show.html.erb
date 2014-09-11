@@ -1,0 +1,12 @@
+<h1>Your details!</h1>
+
+<div id="user_details">
+  <% if @user %>
+    Name : <%= @user.name %><br />
+    Email : <%= @user.email %><br />
+    Type : <%= @user.role %>
+  <% else %>
+    <%= link_to "Sign up", sign_up_path %> or
+    <%= link_to "log in", log_in_path %>
+  <% end %>
+</div>
