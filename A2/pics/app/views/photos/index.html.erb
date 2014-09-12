@@ -1,0 +1,11 @@
+<h1>All Photos</h1>
+
+<%= link_to "Add new photo", new_photo_path %><br />
+
+<% if @photos %>
+  <% @photos.each do |photo| %>
+    <%= link_to image_tag(photo.image.url(:med)), edit_photo_path(photo.id) %>
+  <% end %>
+<% else %>
+  <h3>No photos found!</h3>
+<% end %>

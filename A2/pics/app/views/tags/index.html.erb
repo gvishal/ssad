@@ -1,0 +1,14 @@
+<h1>Tags#index</h1>
+
+<%= link_to "Create a new tag", new_tag_path %><br />
+
+<% if @tags %>
+  <ul>
+  <% @tags.each do |tag| %>
+    <li><%= link_to tag.name, edit_tag_path(tag.id) %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <h3>No tag found!</h3>
+<% end %>
+

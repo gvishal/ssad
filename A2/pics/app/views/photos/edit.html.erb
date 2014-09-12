@@ -1,0 +1,21 @@
+<h1>Edit</h1>
+
+<%= link_to "View other photos", photos_path %><br />  
+<%= link_to "Create a new tag", new_tag_path %><br />
+
+<%= form_for @photo, :url => photo_path, :html => { :multipart => true } do |form| %>
+  <%= image_tag @photo.image.url(:med) %>
+  <h3>Tags</h3>
+  <% for tag in Tag.find(:all) %>
+    <div>
+      <%= check_box_tag "photo[tag_ids][]", tag.id, @photo.tags.include?(tag) %>
+      <%= tag.name %>
+    </div>
+  <% end %>
+  <p class="button"><%= form.submit %></p>
+<% end %>
+<%= button_to "Delete", photo_path(@photo.id), :method => :delete, 
+    data: {confirm: "You sure?"} %>
+
+
+

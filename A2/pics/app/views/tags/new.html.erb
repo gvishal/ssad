@@ -1,0 +1,8 @@
+<h1>Tags#new</h1>
+
+<%= link_to "View other tags", tags_path %><br /><br />
+
+<%= form_for @tag do |form| %>
+  <%= form.text_field :name %>
+  <p class="button"><%= form.submit %></p>
+<% end %>

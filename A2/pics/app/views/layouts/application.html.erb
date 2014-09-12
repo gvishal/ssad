@@ -18,7 +18,13 @@
     <%= link_to "log in", log_in_path %>
   <% end %>
 </div>
-
+<br/>
+<div id="nav">
+  <%= link_to "Home", root_url %>
+  <%= link_to "Users", users_url %>
+  <%= link_to "Photos", photos_url %>
+  <%= link_to "Tags", tags_url %><br />
+</div>
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
