@@ -1,5 +1,7 @@
 <h1>Users</h1>
 
+<%= link_to "Add a new user", sign_up_path %><br /><br />
+
 <% if @users %>
   <table>
     <tr>
@@ -9,7 +11,7 @@
     </tr>
   <% @users.each do |user| %>
     <tr>
-    <td><%= user.name %></td>
+    <td><%= link_to user.name, edit_user_path(user.id) %></td>
     <td><%= user.email %></td>
     <td><%= user.role %></td>
     </tr>

@@ -1,5 +1,7 @@
 <h1>Edit Details</h1>
 
+<%= link_to "View other users", users_path %><br /><br />
+
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
@@ -29,4 +31,4 @@
   </p>
   <p class="button"><%= f.submit %></p>
 <% end %>
-<%= button_to "Delete Profile", user_path(current_user.id), :method => :delete, data: {confirm: "You sure?"} %>
+<%= button_to "Delete Profile", user_path(@user.id), :method => :delete, data: {confirm: "You sure?"} %>
