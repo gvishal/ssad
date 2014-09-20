@@ -1,0 +1,18 @@
+<h1>Scores#show</h1>
+
+<h3>Your Past Scores</h3>
+
+<% if @scores %>
+  <table>
+    <tr>
+      <th>Score</th>
+      <th>Date</th>
+    </tr>
+  <% @scores.each do |score| %>
+    <tr>
+      <td><%= score.score %></td>
+      <td><%= score.created_at %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>

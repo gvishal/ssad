@@ -7,13 +7,13 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Role</th>
+      <th>Admin</th>
     </tr>
   <% @users.each do |user| %>
     <tr>
     <td><%= link_to user.name, edit_user_path(user.id) %></td>
     <td><%= user.email %></td>
-    <td><%= user.role %></td>
+    <td><%= user.admin %></td>
     </tr>
   <% end %>
   </table>

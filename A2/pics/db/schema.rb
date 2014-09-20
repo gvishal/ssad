@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140911195059) do
+ActiveRecord::Schema.define(:version => 20140919175706) do
+
+  create_table "games", :force => true do |t|
+    t.integer  "level"
+    t.integer  "score"
+    t.integer  "attempts"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "tag_id"
+  end
+
+  add_index "games", ["user_id"], :name => "index_games_on_user_id"
 
   create_table "photos", :force => true do |t|
     t.string   "image_file_name"
@@ -30,6 +42,15 @@ ActiveRecord::Schema.define(:version => 20140911195059) do
   add_index "photos_tags", ["photo_id", "tag_id"], :name => "index_photos_tags_on_photo_id_and_tag_id"
   add_index "photos_tags", ["tag_id"], :name => "index_photos_tags_on_tag_id"
 
+  create_table "scores", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "score"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "scores", ["user_id"], :name => "index_scores_on_user_id"
+
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -43,7 +64,11 @@ ActiveRecord::Schema.define(:version => 20140911195059) do
     t.string   "password_salt"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
-    t.string   "role",          :default => "player"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.boolean  "admin",            :default => false
   end
 
 end

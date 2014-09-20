@@ -1,0 +1,20 @@
+<h1>Play#index</h1>
+
+<h3>Score: <%= @current_user.game.score %></h3>
+<% if @message %>
+  <%= @message %>
+<% end %>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+<% if @photos %>
+  <% @photos.each do |photo| %>
+    <%= image_tag photo.image.url(:med) %>
+  <% end %>
+<% end %>
+<%= form_tag do%>
+  <%= hidden_field_tag :answer, @answer %>
+  <%= hidden_field_tag :salt, @salt %>
+  <%= text_field_tag :user_answer %>
+  <%= submit_tag("Check it!") %>
+<% end %>
