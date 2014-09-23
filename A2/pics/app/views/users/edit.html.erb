@@ -1,6 +1,10 @@
 <h1>Edit Details</h1>
 
-<%= link_to "View other users", users_path %><br /><br />
+<% if @current_user %>
+  <% if @current_user.admin %>
+    <%= link_to "View other users", users_path %><br /><br />
+  <% end %>
+<% end %>
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>

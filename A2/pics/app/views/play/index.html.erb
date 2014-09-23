@@ -8,8 +8,13 @@
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 <% if @photos %>
+  <% count = 0 %>
   <% @photos.each do |photo| %>
+    <% if count > 3 %>
+      <% break %>
+    <% end %>
     <%= image_tag photo.image.url(:med) %>
+    <% count += 1 %>
   <% end %>
 <% end %>
 <%= form_tag do%>
