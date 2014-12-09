@@ -66,7 +66,7 @@ class Pacman(Person):
         elif turn == 'd':
             new_position = Bunch(x=self.position.x + 1, y=self.position.y)
         else:
-            return
+            return -1
         if board.board[new_position.y][new_position.x] in ['.', 'C']:
             if board.board[new_position.y][new_position.x] == 'C':
                 self.collect_coin(board)
@@ -86,7 +86,7 @@ class Pacman(Person):
             return True
 
     def pacman_position(self):
-        print self.position.x, self.position.y
+        return self.position.x, self.position.y
 
 class Ghost(Person):
     """Ghost class"""

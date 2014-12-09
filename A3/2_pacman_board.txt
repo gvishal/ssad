@@ -1,0 +1,156 @@
+************* Module pacman_board
+C:  2, 0: Line too long (176/80) (line-too-long)
+C:  3, 0: Line too long (176/80) (line-too-long)
+C:  4, 0: Line too long (176/80) (line-too-long)
+C:  5, 0: Line too long (176/80) (line-too-long)
+C:  6, 0: Line too long (176/80) (line-too-long)
+C:  7, 0: Line too long (176/80) (line-too-long)
+C:  8, 0: Line too long (176/80) (line-too-long)
+C:  9, 0: Line too long (176/80) (line-too-long)
+C: 10, 0: Line too long (176/80) (line-too-long)
+C: 11, 0: Line too long (176/80) (line-too-long)
+C: 12, 0: Line too long (176/80) (line-too-long)
+C: 13, 0: Line too long (176/80) (line-too-long)
+C: 14, 0: Line too long (176/80) (line-too-long)
+C: 15, 0: Line too long (176/80) (line-too-long)
+C: 16, 0: Line too long (175/80) (line-too-long)
+C: 70, 0: Trailing whitespace (trailing-whitespace)
+C: 21, 0: Missing class docstring (missing-docstring)
+W: 21, 0: Class has no __init__ method (no-init)
+C: 21, 0: Old-style class defined. (old-style-class)
+R: 21, 0: Too few public methods (0/2) (too-few-public-methods)
+W: 32,51: Unused variable 'y' (unused-variable)
+W: 32,31: Unused variable 'x' (unused-variable)
+C: 39, 4: Missing method docstring (missing-docstring)
+E: 39, 4: Method has no argument (no-method-argument)
+E: 39, 4: An attribute defined in pacman_board line 84 hides this method (method-hidden)
+C: 41, 8: Missing function docstring (missing-docstring)
+W: 42,19: Access to a protected member _coins of a client class (protected-access)
+C: 43, 8: Missing function docstring (missing-docstring)
+W: 44,12: Access to a protected member _coins of a client class (protected-access)
+C: 45, 8: Missing function docstring (missing-docstring)
+W: 40, 8: Unused variable 'doc' (unused-variable)
+W: 43, 8: Unused variable 'fset' (unused-variable)
+W: 45, 8: Unused variable 'fdel' (unused-variable)
+W: 41, 8: Unused variable 'fget' (unused-variable)
+W: 48,12: Used * or ** magic (star-args)
+C: 50, 4: Missing method docstring (missing-docstring)
+C: 68, 4: Missing method docstring (missing-docstring)
+C: 69,12: Invalid variable name "x" (invalid-name)
+C: 74,12: Invalid variable name "y" (invalid-name)
+C: 78, 4: Invalid argument name "N" (invalid-name)
+C: 78, 4: Missing method docstring (missing-docstring)
+C: 79,12: Invalid variable name "n" (invalid-name)
+C: 80,12: Invalid variable name "x" (invalid-name)
+C: 81,12: Invalid variable name "y" (invalid-name)
+W: 79,12: Unused variable 'n' (unused-variable)
+C: 86, 4: Missing method docstring (missing-docstring)
+C: 89, 4: Missing method docstring (missing-docstring)
+C: 92, 4: Missing method docstring (missing-docstring)
+
+
+Report
+======
+63 statements analysed.
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |34     |34       |=          |
++-----------+-------+---------+-----------+
+|refactor   |1      |1        |=          |
++-----------+-------+---------+-----------+
+|warning    |11     |11       |=          |
++-----------+-------+---------+-----------+
+|error      |2      |2        |=          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------------------+------------+
+|message id             |occurrences |
++=======================+============+
+|line-too-long          |15          |
++-----------------------+------------+
+|missing-docstring      |11          |
++-----------------------+------------+
+|unused-variable        |7           |
++-----------------------+------------+
+|invalid-name           |6           |
++-----------------------+------------+
+|protected-access       |2           |
++-----------------------+------------+
+|trailing-whitespace    |1           |
++-----------------------+------------+
+|too-few-public-methods |1           |
++-----------------------+------------+
+|star-args              |1           |
++-----------------------+------------+
+|old-style-class        |1           |
++-----------------------+------------+
+|no-method-argument     |1           |
++-----------------------+------------+
+|no-init                |1           |
++-----------------------+------------+
+|method-hidden          |1           |
++-----------------------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at 1.11/10 (previous run: 1.11/10, +0.00)
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |1          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |2      |2          |=          |50.00       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |8      |8          |=          |12.50       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |3      |3          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |64     |73.56 |64       |=          |
++----------+-------+------+---------+-----------+
+|docstring |19     |21.84 |19       |=          |
++----------+-------+------+---------+-----------+
+|comment   |2      |2.30  |2        |=          |
++----------+-------+------+---------+-----------+
+|empty     |2      |2.30  |2        |=          |
++----------+-------+------+---------+-----------+
+
+
+

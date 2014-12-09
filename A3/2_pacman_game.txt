@@ -1,0 +1,156 @@
+************* Module pacman_game
+C: 82, 0: Line too long (87/80) (line-too-long)
+C:149, 0: Trailing whitespace (trailing-whitespace)
+F:  4, 0: Unable to import 'getch' (import-error)
+R:  9, 0: Too few public methods (0/2) (too-few-public-methods)
+R: 18, 0: Too few public methods (0/2) (too-few-public-methods)
+E: 61,35: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+E: 61,58: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E: 63,35: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E: 63,58: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+E: 65,35: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+E: 65,58: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E: 67,35: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E: 67,58: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+E: 70,23: Instance of 'Bunch' has no 'y' member (no-member)
+E: 70,39: Instance of 'Bunch' has no 'x' member (no-member)
+E: 71,27: Instance of 'Bunch' has no 'y' member (no-member)
+E: 71,43: Instance of 'Bunch' has no 'x' member (no-member)
+E: 73,24: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+E: 73,41: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E: 74,24: Instance of 'Bunch' has no 'y' member (no-member)
+E: 74,40: Instance of 'Bunch' has no 'x' member (no-member)
+C: 77, 4: Missing method docstring (missing-docstring)
+C: 81, 4: Missing method docstring (missing-docstring)
+E: 82,11: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+E: 82,51: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+C: 88, 4: Missing method docstring (missing-docstring)
+E: 89,14: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E: 89,31: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+W: 97, 4: Arguments number differs from overridden method (arguments-differ)
+C: 98, 8: Invalid variable name "x" (invalid-name)
+C: 99, 8: Invalid variable name "y" (invalid-name)
+E:100,31: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E:100,52: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+E:101,23: Instance of 'Bunch' has no 'y' member (no-member)
+E:101,39: Instance of 'Bunch' has no 'x' member (no-member)
+E:102,46: Instance of 'Bunch' has no 'y' member (no-member)
+E:102,62: Instance of 'Bunch' has no 'x' member (no-member)
+E:103,24: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+E:103,41: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E:104,24: Instance of 'Bunch' has no 'y' member (no-member)
+E:104,40: Instance of 'Bunch' has no 'x' member (no-member)
+C:112, 4: Missing method docstring (missing-docstring)
+C:118, 4: Missing method docstring (missing-docstring)
+E:119,15: Instance of 'Bunch' has no 'x' member (but some types could not be inferred) (maybe-no-member)
+E:119,32: Instance of 'Bunch' has no 'y' member (but some types could not be inferred) (maybe-no-member)
+C:121, 0: Missing function docstring (missing-docstring)
+
+
+Report
+======
+125 statements analysed.
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+External dependencies
+---------------------
+::
+
+    pacman_board (pacman_game)
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |10     |10       |=          |
++-----------+-------+---------+-----------+
+|refactor   |2      |2        |=          |
++-----------+-------+---------+-----------+
+|warning    |1      |1        |=          |
++-----------+-------+---------+-----------+
+|error      |32     |32       |=          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------------------+------------+
+|message id             |occurrences |
++=======================+============+
+|maybe-no-member        |20          |
++-----------------------+------------+
+|no-member              |12          |
++-----------------------+------------+
+|missing-docstring      |6           |
++-----------------------+------------+
+|too-few-public-methods |2           |
++-----------------------+------------+
+|invalid-name           |2           |
++-----------------------+------------+
+|trailing-whitespace    |1           |
++-----------------------+------------+
+|line-too-long          |1           |
++-----------------------+------------+
+|import-error           |1           |
++-----------------------+------------+
+|arguments-differ       |1           |
++-----------------------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at -3.84/10 (previous run: -3.84/10, +0.00)
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |1          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |5      |5          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |13     |13         |=          |61.54       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |1      |1          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |126    |82.35 |126      |=          |
++----------+-------+------+---------+-----------+
+|docstring |16     |10.46 |16       |=          |
++----------+-------+------+---------+-----------+
+|comment   |3      |1.96  |3        |=          |
++----------+-------+------+---------+-----------+
+|empty     |8      |5.23  |8        |=          |
++----------+-------+------+---------+-----------+
+
+
+
